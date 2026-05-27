@@ -6,7 +6,6 @@ import java.util.List;
 import dao.RendaDAO;
 
 public class Renda {
-
     private String idRenda;
     private String nomeRenda;
     private double valor;
@@ -54,7 +53,7 @@ public class Renda {
         return new RendaDAO().buscarPorId(id, Sessao.getIdUsuarioLogado());
     }
 
-     public static List<Renda> listarRendasExtras() {
+    public static List<Renda> listarRendasExtras() {
         return new RendaDAO().listarRendasExtras(Sessao.getIdUsuarioLogado());
     }
 

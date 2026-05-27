@@ -1,4 +1,5 @@
 {
+    "sqltools.useNodeRuntime": "C:\\Program Files\\nodejs\\node.exe",
     "sqltools.connections": [
         {
             "previewLimit": 50,
