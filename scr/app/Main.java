@@ -3,6 +3,7 @@ package scr.app;
 import java.util.Scanner;
 import scr.model.Sessao;
 import scr.views.TelaRenda;
+import scr.views.TelaUsuario;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,15 +30,15 @@ public class Main {
 
         int opcao = lerOpcao(scanner);
 
+        TelaUsuario telaUsuario = new TelaUsuario(scanner);
+
         switch (opcao) {
             case 1:
-                // Login temporário para testar o módulo de renda
-                Sessao.logar("1", "Admin");
-                System.out.println("Login realizado como Admin para teste.");
+                telaUsuario.exibirMenuLogin();
                 break;
 
             case 2:
-                System.out.println("Cadastro de usuário ainda será implementado.");
+                telaUsuario.exibirMenuCadastro();
                 break;
 
             case 0:
@@ -74,8 +75,7 @@ public class Main {
 
         switch (opcao) {
             case 1:
-                TelaRenda telaRenda = new TelaRenda();
-                telaRenda.exibirMenu();
+                new TelaRenda().exibirMenu();
                 break;
 
             case 2:
@@ -87,7 +87,7 @@ public class Main {
                 break;
 
             case 4:
-                System.out.println("Perfil do usuário ainda será implementado.");
+                new TelaUsuario(scanner).exibirMenuPerfil();
                 break;
 
             case 5:
@@ -112,10 +112,11 @@ public class Main {
                 int opcao = scanner.nextInt();
                 scanner.nextLine();
                 return opcao;
-            } else {
-                scanner.nextLine();
-                return -1;
             }
+
+            scanner.nextLine();
+            return -1;
+
         } catch (Exception e) {
             scanner.nextLine();
             return -1;
