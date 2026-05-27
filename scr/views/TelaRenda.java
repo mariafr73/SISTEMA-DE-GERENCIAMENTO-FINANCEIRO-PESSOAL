@@ -1,11 +1,12 @@
-package views;
+package scr.views;
 
-import controller.RendaController;
+import scr.controller.RendaController;
+import scr.model.Renda;
+import scr.model.UtilData;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-import model.Renda;
-import model.UtilData;
 
 public class TelaRenda {
     private final Scanner leitor = new Scanner(System.in);

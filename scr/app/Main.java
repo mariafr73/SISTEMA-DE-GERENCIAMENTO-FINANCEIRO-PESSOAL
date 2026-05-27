@@ -1,9 +1,8 @@
-package app;
+package scr.app;
 
 import java.util.Scanner;
-
-import model.Sessao;
-import views.TelaRenda;
+import scr.model.Sessao;
+import scr.views.TelaRenda;
 
 public class Main {
     public static void main(String[] args) {

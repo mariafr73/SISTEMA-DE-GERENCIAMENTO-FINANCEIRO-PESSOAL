@@ -1,4 +1,4 @@
-package model;
+package scr.model;
 
 public class Despesa {
     

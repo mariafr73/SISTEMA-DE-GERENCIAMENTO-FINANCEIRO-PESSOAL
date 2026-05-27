@@ -1,4 +1,4 @@
-package views;
+package scr.views;
 
 public class TelaUsuario {
     

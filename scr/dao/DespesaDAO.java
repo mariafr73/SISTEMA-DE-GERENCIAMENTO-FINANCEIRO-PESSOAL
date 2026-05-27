@@ -1,4 +1,4 @@
-package dao;
+package scr.dao;
 
 public class DespesaDAO {
     

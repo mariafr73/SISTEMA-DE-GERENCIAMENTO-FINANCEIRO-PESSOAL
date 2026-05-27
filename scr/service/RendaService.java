@@ -1,11 +1,11 @@
-package service;
-
-import dao.RendaDAO;
-import model.Renda;
-import model.Sessao;
+package scr.service;
 
 import java.util.Date;
 import java.util.List;
+
+import scr.dao.RendaDAO;
+import scr.model.Renda;
+import scr.model.Sessao;
 
 public class RendaService {
 

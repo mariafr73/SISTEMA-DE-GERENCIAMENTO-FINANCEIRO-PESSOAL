@@ -1,4 +1,4 @@
-package model;
+package scr.model;
 
 public class Sessao {
     private static String idUsuarioLogado = null;

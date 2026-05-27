@@ -1,11 +1,11 @@
-package dao;
+package scr.dao;
 
 import java.sql.*;
 import java.util.*;
 
 import database.DatabaseConnector;
-import model.Renda;
-import model.UtilData;
+import scr.model.Renda;
+import scr.model.UtilData;
 
 public class RendaDAO {
 

@@ -1,4 +1,4 @@
-package service;
+package scr.service;
 
 public class UsuarioService {
     
