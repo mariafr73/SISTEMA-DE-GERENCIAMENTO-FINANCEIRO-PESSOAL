@@ -2,7 +2,8 @@ package dao;
 
 import java.sql.*;
 import java.util.*;
-import model.DatabaseConnector;
+
+import database.DatabaseConnector;
 import model.Renda;
 import model.UtilData;
 
