@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "SistemaFinanceiro",
+            "database": "C:\\Users\\maria\\Desktop\\financas.db"
+        }
+    ]
+}
