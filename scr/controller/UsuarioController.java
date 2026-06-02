@@ -32,7 +32,7 @@ public class UsuarioController {
         usuarioService.visualizarUsuario(usuario);
     }
 
-    public String listarRendasDespesasPorPeriodo(String inicio, String fim) {
+    /*public String listarRendasDespesasPorPeriodo(String inicio, String fim) {
         return usuarioService.listarRendasDespesasPorPeriodo(inicio, fim);
-    }
+    }*/
 }
