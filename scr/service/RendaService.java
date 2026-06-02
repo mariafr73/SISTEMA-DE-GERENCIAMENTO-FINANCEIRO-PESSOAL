@@ -8,7 +8,6 @@ import scr.model.Renda;
 import scr.model.Sessao;
 
 public class RendaService {
-
     private final RendaDAO rendaDAO = new RendaDAO();
 
     public Renda cadastrarRenda(String nome, double valor, Date data, boolean tipo) {
