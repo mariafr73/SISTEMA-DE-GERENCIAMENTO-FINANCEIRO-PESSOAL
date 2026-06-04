@@ -19,19 +19,39 @@ import org.mindrot.jbcrypt.BCrypt;
 public class UsuarioService {
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-    public boolean registrarUsuario(String nome, String email, String senhaPura, Date dataNascimento) {
-        if (nome == null || nome.trim().isEmpty()) {
-            System.out.println("Erro: nome obrigatório.");
-            return false;
-        }
+   public boolean registrarUsuario(String nome, String email,
+        String senhaPura, Date dataNascimento) {
 
         if (email == null || email.trim().isEmpty()) {
             System.out.println("Erro: email obrigatório.");
             return false;
         }
 
+        email = email.trim().toLowerCase();
+
+        if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+            System.out.println("Erro: email inválido.");
+            System.out.println("Exemplo válido: maria@gmail.com");
+            return false;
+        }
+
+        if (usuarioDAO.buscarPorEmail(email) != null) {
+            System.out.println("Erro: já existe um usuário cadastrado com este email.");
+            return false;
+        }
+
+        if (nome == null || nome.trim().isEmpty()) {
+            System.out.println("Erro: nome obrigatório.");
+            return false;
+        }
+
         if (senhaPura == null || senhaPura.trim().isEmpty()) {
             System.out.println("Erro: senha obrigatória.");
+            return false;
+        }
+
+        if (senhaPura.length() < 6) {
+            System.out.println("Erro: a senha deve ter pelo menos 6 caracteres.");
             return false;
         }
 
@@ -53,6 +73,16 @@ public class UsuarioService {
     }
 
     public Usuario login(String email, String senhaPura) {
+        if (email == null || email.trim().isEmpty()) {
+            System.out.println("Erro: email obrigatório.");
+            return null;
+        }
+
+        if (senhaPura == null || senhaPura.trim().isEmpty()) {
+            System.out.println("Erro: senha obrigatória.");
+            return null;
+        }
+
         Usuario usuarioDB = usuarioDAO.buscarPorEmail(email);
 
         if (usuarioDB == null) {
@@ -65,7 +95,12 @@ public class UsuarioService {
         if (BCrypt.checkpw(senhaPura, hashSalvo)) {
             usuarioDB.setSenha(null);
             Sessao.logar(usuarioDB.getIdUsuario(), usuarioDB.getNome());
-            System.out.println("Login bem-sucedido! Bem-vindo(a), " + usuarioDB.getNome());
+
+            System.out.println(
+                "Login bem-sucedido! Bem-vindo(a), "
+                + usuarioDB.getNome()
+            );
+
             return usuarioDB;
         }
 
@@ -144,7 +179,7 @@ public class UsuarioService {
         System.out.println("=======================\n");
     }
 
-    public String listarRendasDespesasPorPeriodo(String inicio, String fim) {
+    /*public String listarRendasDespesasPorPeriodo(String inicio, String fim) {
         Usuario usuario = buscarUsuarioLogado();
 
         if (usuario == null) {
@@ -186,5 +221,5 @@ public class UsuarioService {
         relatorio.append("\n===============================\n");
 
         return relatorio.toString();
-    }
+    }*/
 }

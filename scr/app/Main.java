@@ -2,6 +2,7 @@ package scr.app;
 
 import java.util.Scanner;
 import scr.model.Sessao;
+import scr.views.TelaCategoria;
 import scr.views.TelaRenda;
 import scr.views.TelaUsuario;
 
@@ -54,10 +55,7 @@ public class Main {
 
     private static void exibirMenuPrincipal(Scanner scanner) {
         String idUsuario = Sessao.getIdUsuarioLogado();
-
-        String idDisplay = idUsuario.length() > 8
-                ? idUsuario.substring(0, 8) + "..."
-                : idUsuario;
+        String idDisplay = idUsuario.length() > 8 ? idUsuario.substring(0, 8) + "..." : idUsuario;
 
         System.out.println("\n==========================================");
         System.out.println("     MENU PRINCIPAL (ID: " + idDisplay + ")");
@@ -83,7 +81,7 @@ public class Main {
                 break;
 
             case 3:
-                System.out.println("Módulo de categorias ainda será implementado.");
+                new TelaCategoria().exibirMenu();
                 break;
 
             case 4:

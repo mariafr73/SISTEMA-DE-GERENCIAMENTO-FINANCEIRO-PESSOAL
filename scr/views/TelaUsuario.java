@@ -58,7 +58,7 @@ public class TelaUsuario {
                         return;
                     }
                 }
-                case 4 -> visualizarRelatorioFinanceiro();
+                /*case 4 -> visualizarRelatorioFinanceiro(); */
                 case 0 -> System.out.println("Voltando ao menu principal...");
                 default -> System.out.println("Opção inválida.");
             }
@@ -163,12 +163,7 @@ public class TelaUsuario {
 
         Date dataNascimento = lerDataNascimento();
 
-        boolean sucesso = controller.registrarUsuario(
-                nome,
-                email,
-                senha,
-                dataNascimento
-        );
+        boolean sucesso = controller.registrarUsuario(nome, email, senha, dataNascimento);
 
         if (sucesso) {
             System.out.println("Usuário registrado com sucesso! Faça login para continuar.");
@@ -195,7 +190,7 @@ public class TelaUsuario {
         return usuarioLogado;
     }
 
-    private void visualizarRelatorioFinanceiro() {
+    /*private void visualizarRelatorioFinanceiro() {
         System.out.println("\n--- RELATÓRIO FINANCEIRO ---");
 
         System.out.print("Data inicial (dd/MM/yyyy): ");
@@ -207,7 +202,7 @@ public class TelaUsuario {
         String relatorio = controller.listarRendasDespesasPorPeriodo(inicio, fim);
 
         System.out.println(relatorio);
-    }
+    }*/
 
     private Date lerDataNascimento() {
         Date dataNascimento = null;
