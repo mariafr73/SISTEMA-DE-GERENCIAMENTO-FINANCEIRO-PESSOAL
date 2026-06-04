@@ -77,7 +77,7 @@ public class Main {
                 break;
 
             case 2:
-                
+                new TelaDespesa().exibirMenu();
                 break;
 
             case 3:
