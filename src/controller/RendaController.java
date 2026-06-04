@@ -1,7 +1,7 @@
-package scr.controller;
+package src.controller;
 
-import scr.model.Renda;
-import scr.service.RendaService;
+import src.model.Renda;
+import src.service.RendaService;
 
 import java.util.Date;
 import java.util.List;

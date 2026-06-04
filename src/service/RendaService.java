@@ -1,11 +1,10 @@
-package scr.service;
+package src.service;
 
 import java.util.Date;
 import java.util.List;
-
-import scr.dao.RendaDAO;
-import scr.model.Renda;
-import scr.model.Sessao;
+import src.dao.RendaDAO;
+import src.model.Renda;
+import src.model.Sessao;
 
 public class RendaService {
     private final RendaDAO rendaDAO = new RendaDAO();
@@ -31,14 +30,7 @@ public class RendaService {
             return null;
         }
 
-        Renda renda = new Renda(
-            Sessao.getIdUsuarioLogado(),
-            nome,
-            valor,
-            data,
-            tipo
-        );
-
+        Renda renda = new Renda(Sessao.getIdUsuarioLogado(), nome, valor, data, tipo);
         return rendaDAO.cadastrarRenda(renda);
     }
 
@@ -67,10 +59,6 @@ public class RendaService {
     }
 
     public double calcularRendaTotalMensal(int mes, int ano) {
-        return rendaDAO.calcularRendaTotalMensal(
-            mes,
-            ano,
-            Sessao.getIdUsuarioLogado()
-        );
+        return rendaDAO.calcularRendaTotalMensal(mes, ano, Sessao.getIdUsuarioLogado());
     }
 }

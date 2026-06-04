@@ -1,18 +1,16 @@
-package scr.views;
-
-import scr.controller.UsuarioController;
-import scr.model.Sessao;
-import scr.model.Usuario;
-import scr.model.UtilData;
+package src.views;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
+import src.controller.UsuarioController;
+import src.model.Sessao;
+import src.model.Usuario;
+import src.model.UtilData;
 
 public class TelaUsuario {
-
     private final Scanner scanner;
     private final UsuarioController controller = new UsuarioController();
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
@@ -58,7 +56,7 @@ public class TelaUsuario {
                         return;
                     }
                 }
-                /*case 4 -> visualizarRelatorioFinanceiro(); */
+                case 4 -> visualizarRelatorioFinanceiro();
                 case 0 -> System.out.println("Voltando ao menu principal...");
                 default -> System.out.println("Opção inválida.");
             }
@@ -70,7 +68,7 @@ public class TelaUsuario {
 
         if (usuario != null) {
             controller.visualizarUsuario(usuario);
-            System.out.println("Pressione ENTER para continuar...");
+            System.out.println("Pressione ENTER para continuar.");
             scanner.nextLine();
         }
     }
@@ -99,9 +97,7 @@ public class TelaUsuario {
             usuario.setEmail(novoEmail);
         }
 
-        String dataAtualStr = usuario.getDataNascimento() != null
-                ? UtilData.formatarData(usuario.getDataNascimento())
-                : "N/D";
+        String dataAtualStr = usuario.getDataNascimento() != null ? UtilData.formatarData(usuario.getDataNascimento()) : "N/D";
 
         System.out.print("Nova Data (dd/MM/yyyy) [" + dataAtualStr + "]: ");
         String novaDataStr = scanner.nextLine();
@@ -190,19 +186,19 @@ public class TelaUsuario {
         return usuarioLogado;
     }
 
-    /*private void visualizarRelatorioFinanceiro() {
+     private void visualizarRelatorioFinanceiro() {
         System.out.println("\n--- RELATÓRIO FINANCEIRO ---");
-
+        
         System.out.print("Data inicial (dd/MM/yyyy): ");
         String inicio = scanner.nextLine();
-
+        
         System.out.print("Data final (dd/MM/yyyy): ");
         String fim = scanner.nextLine();
-
+        
         String relatorio = controller.listarRendasDespesasPorPeriodo(inicio, fim);
-
+        
         System.out.println(relatorio);
-    }*/
+     }
 
     private Date lerDataNascimento() {
         Date dataNascimento = null;
@@ -243,7 +239,6 @@ public class TelaUsuario {
                 System.out.println("Digite apenas números inteiros para dia, mês e ano.");
             }
         }
-
         return dataNascimento;
     }
 

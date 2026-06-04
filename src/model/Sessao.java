@@ -1,4 +1,4 @@
-package scr.model;
+package src.model;
 
 public class Sessao {
     private static String idUsuarioLogado = null;
@@ -22,7 +22,11 @@ public class Sessao {
     public static String getIdUsuarioLogado() {
         return idUsuarioLogado;
     }
-    
+
+    public static String getNomeUsuarioLogado() {
+        return nomeUsuarioLogado;
+    }
+
     public static boolean isLogado() {
         return idUsuarioLogado != null;
     }

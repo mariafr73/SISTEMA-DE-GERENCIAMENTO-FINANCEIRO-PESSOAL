@@ -1,4 +1,4 @@
-package scr.model;
+package src.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,6 +10,8 @@ public class Despesa {
     private Date data;
     private Categoria categoria;
     private String idUsuario;
+
+    public Despesa() {}
 
     public Despesa(String nomeDespesa, double valor, Date data, Categoria categoria, String idUsuario) {
         this.nomeDespesa = nomeDespesa;
@@ -75,7 +77,6 @@ public class Despesa {
         System.out.printf("Valor: R$ %.2f%n", valor);
         System.out.println("Data: " + (data != null ? sdf.format(data) : "Não informada"));
         System.out.println("Categoria: " + (categoria != null ? categoria.getNomeCategoria() : "Sem categoria"));
-        System.out.println("ID Usuário: " + idUsuario);
         System.out.println("---------------------");
     }
 }

@@ -1,4 +1,4 @@
-package scr.model;
+package src.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

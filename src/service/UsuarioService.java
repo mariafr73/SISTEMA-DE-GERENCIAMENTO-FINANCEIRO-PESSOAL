@@ -1,18 +1,18 @@
-package scr.service;
+package src.service;
 
-import scr.dao.DespesaDAO;
-import scr.dao.RendaDAO;
-import scr.dao.UsuarioDAO;
+import src.dao.DespesaDAO;
+import src.dao.RendaDAO;
+import src.dao.UsuarioDAO;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import scr.model.Despesa;
-import scr.model.Sessao;
-import scr.model.Usuario;
-import scr.model.UtilData;
+import src.model.Despesa;
+import src.model.Sessao;
+import src.model.Usuario;
+import src.model.UtilData;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -96,10 +96,7 @@ public class UsuarioService {
             usuarioDB.setSenha(null);
             Sessao.logar(usuarioDB.getIdUsuario(), usuarioDB.getNome());
 
-            System.out.println(
-                "Login bem-sucedido! Bem-vindo(a), "
-                + usuarioDB.getNome()
-            );
+            System.out.println("Login bem-sucedido! Bem-vindo(a), " + usuarioDB.getNome());
 
             return usuarioDB;
         }
@@ -179,7 +176,7 @@ public class UsuarioService {
         System.out.println("=======================\n");
     }
 
-    /*public String listarRendasDespesasPorPeriodo(String inicio, String fim) {
+    public String listarRendasDespesasPorPeriodo(String inicio, String fim) {
         Usuario usuario = buscarUsuarioLogado();
 
         if (usuario == null) {
@@ -221,5 +218,5 @@ public class UsuarioService {
         relatorio.append("\n===============================\n");
 
         return relatorio.toString();
-    }*/
+    }
 }

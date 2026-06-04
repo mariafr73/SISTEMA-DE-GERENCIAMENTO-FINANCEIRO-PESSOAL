@@ -1,10 +1,10 @@
-package scr.app;
+package src.app;
 
 import java.util.Scanner;
-import scr.model.Sessao;
-import scr.views.TelaCategoria;
-import scr.views.TelaRenda;
-import scr.views.TelaUsuario;
+import src.model.Sessao;
+import src.views.TelaCategoria;
+import src.views.TelaRenda;
+import src.views.TelaUsuario;
 
 public class Main {
     public static void main(String[] args) {
@@ -77,7 +77,7 @@ public class Main {
                 break;
 
             case 2:
-                System.out.println("Módulo de despesas ainda será implementado.");
+                
                 break;
 
             case 3:

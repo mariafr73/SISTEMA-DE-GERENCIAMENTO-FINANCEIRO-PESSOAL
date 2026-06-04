@@ -1,11 +1,10 @@
-package scr.controller;
+package src.controller;
 
 import java.util.Date;
-import scr.model.Usuario;
-import scr.service.UsuarioService;
+import src.model.Usuario;
+import src.service.UsuarioService;
 
 public class UsuarioController {
-
     private final UsuarioService usuarioService = new UsuarioService();
 
     public boolean registrarUsuario(String nome, String email, String senha, Date dataNascimento) {
@@ -32,7 +31,7 @@ public class UsuarioController {
         usuarioService.visualizarUsuario(usuario);
     }
 
-    /*public String listarRendasDespesasPorPeriodo(String inicio, String fim) {
+    public String listarRendasDespesasPorPeriodo(String inicio, String fim) {
         return usuarioService.listarRendasDespesasPorPeriodo(inicio, fim);
-    }*/
+    }
 }

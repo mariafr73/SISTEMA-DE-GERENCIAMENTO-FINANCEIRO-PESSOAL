@@ -1,4 +1,4 @@
-package scr.dao;
+package src.dao;
 
 import database.DatabaseConnector;
 import java.sql.Connection;
@@ -6,11 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
-import scr.model.Usuario;
-import scr.model.UtilData;
+import src.model.Usuario;
+import src.model.UtilData;
 
 public class UsuarioDAO {
-
     private static final String SQL_INSERT
             = "INSERT INTO Usuario (id_usuario, nome, email, senha, data_nascimento) VALUES (?, ?, ?, ?, ?)";
     private static final String SQL_SELECT_BY_EMAIL
@@ -61,7 +60,6 @@ public class UsuarioDAO {
         boolean sucesso = false;
 
         try (Connection conn = DatabaseConnector.conectar(); PreparedStatement stmt = conn.prepareStatement(SQL_DELETE)) {
-
             stmt.setString(1, idUsuario);
 
             int linhasAfetadas = stmt.executeUpdate();
@@ -104,7 +102,6 @@ public class UsuarioDAO {
             System.err.println("Erro ao buscar usuário por email: " + e.getMessage());
         } finally {
             DatabaseConnector.fecharConexao(conn);
-            // Fechamento seguro dos recursos
             if (rs != null) {
                 try {
                     rs.close();

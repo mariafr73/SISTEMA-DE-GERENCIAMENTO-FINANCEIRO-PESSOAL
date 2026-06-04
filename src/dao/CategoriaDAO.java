@@ -1,13 +1,12 @@
-package scr.dao;
+package src.dao;
 
+import database.DatabaseConnector;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import scr.model.Categoria;
-import database.DatabaseConnector;
+import src.model.Categoria;
 
 public class CategoriaDAO {
-
     public boolean inserir(Categoria categoria) {
         String sql = "INSERT INTO Categoria (idCategoria, nomeCategoria, status, idUsuario) VALUES (?, ?, ?, ?)";
 

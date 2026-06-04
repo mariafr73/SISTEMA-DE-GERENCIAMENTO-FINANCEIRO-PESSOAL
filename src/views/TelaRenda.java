@@ -1,12 +1,11 @@
-package scr.views;
-
-import scr.controller.RendaController;
-import scr.model.Renda;
-import scr.model.UtilData;
+package src.views;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import src.controller.RendaController;
+import src.model.Renda;
+import src.model.UtilData;
 
 public class TelaRenda {
     private final Scanner leitor = new Scanner(System.in);
@@ -138,11 +137,7 @@ public class TelaRenda {
             }
         }
 
-        controller.editar(
-            rendaSelecionada.getIdRenda(),
-            novoNome,
-            novoValor
-        );
+        controller.editar(rendaSelecionada.getIdRenda(), novoNome, novoValor);
 
         System.out.println("Renda atualizada com sucesso!");
     }
@@ -163,11 +158,7 @@ public class TelaRenda {
             return;
         }
 
-        System.out.print(
-            "Tem certeza que deseja excluir '" +
-            rendaSelecionada.getNomeRenda() +
-            "'? (S/N): "
-        );
+        System.out.print("Tem certeza que deseja excluir '" + rendaSelecionada.getNomeRenda() + "'? (S/N): ");
 
         String confirmacao = leitor.nextLine();
 
@@ -230,12 +221,7 @@ public class TelaRenda {
         for (int i = 0; i < lista.size(); i++) {
             Renda r = lista.get(i);
 
-            System.out.println(
-                (i + 1) + ". " +
-                r.getNomeRenda() +
-                " | R$ " +
-                r.getValor()
-            );
+            System.out.println((i + 1) + ". " + r.getNomeRenda() + " | R$ " + r.getValor());
         }
 
         System.out.println("0. Cancelar");
@@ -258,13 +244,7 @@ public class TelaRenda {
 
     private void exibirLista(List<Renda> lista) {
         for (Renda r : lista) {
-            System.out.println(
-                r.getIdRenda() +
-                " | " +
-                r.getNomeRenda() +
-                " | R$ " +
-                r.getValor()
-            );
+            System.out.println(r.getIdRenda() + " | " + r.getNomeRenda() + " | R$ " + r.getValor());
         }
     }
 
@@ -284,9 +264,7 @@ public class TelaRenda {
             System.out.print("Valor (maior que 0): ");
 
             try {
-                valor = Double.parseDouble(
-                    leitor.nextLine().replace(",", ".")
-                );
+                valor = Double.parseDouble(leitor.nextLine().replace(",", "."));
 
                 if (valor <= 0) {
                     System.out.println("O valor deve ser positivo.");
@@ -323,12 +301,7 @@ public class TelaRenda {
                     continue;
                 }
 
-                String dataTexto = String.format(
-                    "%02d/%02d/%d",
-                    dia,
-                    mes,
-                    ano
-                );
+                String dataTexto = String.format("%02d/%02d/%d", dia, mes, ano);
 
                 data = UtilData.parseDataUsuario(dataTexto);
 

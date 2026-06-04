@@ -1,7 +1,6 @@
-package scr.model;
+package src.model;
 
 public class Categoria {
-
     private String idCategoria;
     private String nomeCategoria;
     private Boolean status;
@@ -9,12 +8,7 @@ public class Categoria {
 
     public Categoria() {}
 
-    public Categoria(
-            String idCategoria,
-            String nomeCategoria,
-            Boolean status,
-            String idUsuario) {
-
+    public Categoria(String idCategoria, String nomeCategoria, Boolean status, String idUsuario) {
         this.idCategoria = idCategoria;
         this.nomeCategoria = nomeCategoria;
         this.status = status;

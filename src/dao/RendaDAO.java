@@ -1,16 +1,13 @@
-package scr.dao;
-
-import java.sql.*;
-import java.util.*;
+package src.dao;
 
 import database.DatabaseConnector;
-import scr.model.Renda;
-import scr.model.UtilData;
+import java.sql.*;
+import java.util.*;
+import src.model.Renda;
+import src.model.UtilData;
 
 public class RendaDAO {
-
     public Renda cadastrarRenda(Renda renda) {
-
         if (renda.getIdRenda() == null) {
             renda.setIdRenda(UUID.randomUUID().toString());
         }
@@ -37,7 +34,6 @@ public class RendaDAO {
     }
 
     public void editarRenda(String id, String nome, double valor) {
-
         String sql = "UPDATE Renda SET nome = ?, valor = ? WHERE id = ?";
 
         try (Connection conn = DatabaseConnector.conectar();
@@ -55,7 +51,6 @@ public class RendaDAO {
     }
 
     public boolean excluirRenda(Renda renda) {
-
         String sql = "DELETE FROM Renda WHERE id = ? AND idUsuario = ?";
 
         try (Connection conn = DatabaseConnector.conectar();
@@ -73,7 +68,6 @@ public class RendaDAO {
     }
 
     public void visualizarRenda(String id) {
-
         String sql = "SELECT * FROM Renda WHERE id = ?";
 
         try (Connection conn = DatabaseConnector.conectar();
@@ -100,7 +94,6 @@ public class RendaDAO {
     }
 
     public Renda buscarPorId(String id, String idUsuario) {
-
         String sql = "SELECT * FROM Renda WHERE id = ? AND idUsuario = ?";
 
         try (Connection conn = DatabaseConnector.conectar();
@@ -138,7 +131,6 @@ public class RendaDAO {
     }
 
     private List<Renda> listarPorTipo(boolean tipo, String idUsuario) {
-
         List<Renda> lista = new ArrayList<>();
 
         String sql = "SELECT * FROM Renda WHERE tipo = ? AND idUsuario = ? ORDER BY date(data) DESC";
@@ -170,7 +162,6 @@ public class RendaDAO {
     }
 
     public double calcularRendaTotalMensal(int mes, int ano, String idUsuario) {
-
         String sql = """
             SELECT SUM(valor) AS total
             FROM Renda

@@ -1,13 +1,11 @@
-package scr.controller;
+package src.controller;
 
 import java.util.List;
-import scr.model.Categoria;
-import scr.service.CategoriaService;
+import src.model.Categoria;
+import src.service.CategoriaService;
 
 public class CategoriaController {
-
-    private CategoriaService service =
-            new CategoriaService();
+    private CategoriaService service = new CategoriaService();
 
     public Categoria cadastrar(String nome) {
         return service.cadastrar(nome);
@@ -21,10 +19,7 @@ public class CategoriaController {
         return service.buscar(nome);
     }
 
-    public boolean editar(
-            Categoria categoria,
-            String novoNome) {
-
+    public boolean editar(Categoria categoria, String novoNome) {
         return service.editar(categoria, novoNome);
     }
 
