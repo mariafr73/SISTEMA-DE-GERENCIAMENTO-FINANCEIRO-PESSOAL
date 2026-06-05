@@ -172,7 +172,7 @@ Após o login, o usuário poderá:
 
 O diagrama de classes representa a estrutura das entidades, seus atributos e relacionamentos.
 
-![Diagrama de Classe]()
+![Diagrama de Classe](Docs/WhatsApp%20Image%202026-06-05%20at%2002.17.22.jpeg)
 
 ---
 
