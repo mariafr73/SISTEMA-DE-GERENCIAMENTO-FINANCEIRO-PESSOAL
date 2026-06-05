@@ -42,6 +42,11 @@ public class RendaService {
         return rendaDAO.listarRendasFixas(Sessao.getIdUsuarioLogado());
     }
 
+      public List<Renda> listarRendasPorPeriodo(Date inicio,Date fim){
+        return rendaDAO.listarRendasPorPeriodo(inicio, fim, Sessao.getIdUsuarioLogado());
+    }
+
+
     public void editarRenda(String id, String nome, double valor) {
         rendaDAO.editarRenda(id, nome, valor);
     }

@@ -21,6 +21,7 @@ public class TelaRenda {
             System.out.println("5. Excluir");
             System.out.println("6. Visualizar");
             System.out.println("7. Total Mensal");
+            System.out.println("8. Listar por Período");
             System.out.println("0. Voltar");
             System.out.print("Opção: ");
 
@@ -38,6 +39,7 @@ public class TelaRenda {
                 case 5 -> excluir();
                 case 6 -> visualizar();
                 case 7 -> totalMensal();
+                case 8 -> listarPorPeriodo();
                 default -> System.out.println("Opção inválida!");
             }
         }
@@ -333,4 +335,34 @@ public class TelaRenda {
             System.out.println("Digite 1 para Sim ou 0 para Não.");
         }
     }
+
+    private void listarPorPeriodo() {
+
+    System.out.println("\n--- LISTAR RENDAS POR PERÍODO ---");
+
+    System.out.println("Data Inicial:");
+    Date inicio = lerData();
+
+    System.out.println("Data Final:");
+    Date fim = lerData();
+
+    List<Renda> lista =
+        controller.listarPorPeriodo(inicio, fim);
+
+    if (lista.isEmpty()) {
+        System.out.println("Nenhuma renda encontrada no período.");
+
+        return;
+    }
+
+    System.out.println("\n--- RENDAS ENCONTRADAS ---");
+
+    for (Renda r : lista) {
+        System.out.println("Nome: " + r.getNomeRenda());
+        System.out.println("Valor: R$ " + r.getValor());
+        System.out.println("Data: " + UtilData.formatarData(r.getData()));
+        System.out.println("Tipo: " + (r.isTipoRenda()? "Fixa": "Extra"));
+        System.out.println("--------------------");
+    }
+}
 }

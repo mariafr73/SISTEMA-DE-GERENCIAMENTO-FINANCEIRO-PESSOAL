@@ -161,6 +161,38 @@ public class RendaDAO {
         return lista;
     }
 
+     public List<Renda> listarRendasPorPeriodo(Date inicio, Date fim, String idUsuario) {
+        List<Renda> lista = new ArrayList<>();
+
+        String sql =
+            "SELECT * FROM Renda " + "WHERE date(data) BETWEEN ? AND ? " + "AND idUsuario = ? " + "ORDER BY date(data) DESC";
+
+        try (Connection conn = DatabaseConnector.conectar(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1,UtilData.formatarData(inicio));
+            stmt.setString(2, UtilData.formatarData(fim));
+            stmt.setString(3, idUsuario);
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Renda r = new Renda();
+
+                r.setIdRenda(rs.getString("id"));
+                r.setIdUsuario(rs.getString("idUsuario"));
+                r.setNomeRenda(rs.getString("nome"));
+                r.setValor(rs.getDouble("valor"));
+                r.setData(UtilData.parseDataBanco(rs.getString("data")));
+                r.setTipoRenda(rs.getBoolean("tipo"));
+                lista.add(r);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar rendas por período: " + e.getMessage());
+        }
+        return lista;
+    }
+
     public double calcularRendaTotalMensal(int mes, int ano, String idUsuario) {
         String sql = """
             SELECT SUM(valor) AS total

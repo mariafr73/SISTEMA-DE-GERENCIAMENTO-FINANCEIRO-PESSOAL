@@ -21,6 +21,10 @@ public class RendaController {
         return rendaService.listarRendasFixas();
     }
 
+    public List<Renda> listarPorPeriodo(Date inicio, Date fim) {
+        return rendaService.listarRendasPorPeriodo(inicio, fim);
+    }
+
     public void editar(String id, String nome, double valor) {
         rendaService.editarRenda(id, nome, valor);
     }
