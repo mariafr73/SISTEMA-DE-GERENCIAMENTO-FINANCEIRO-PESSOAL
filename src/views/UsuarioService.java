@@ -1,4 +1,4 @@
-package src.service;
+package src.views;
 
 import src.dao.DespesaDAO;
 import src.dao.RendaDAO;
