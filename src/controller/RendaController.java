@@ -1,10 +1,9 @@
 package src.controller;
 
-import src.model.Renda;
-import src.service.RendaService;
-
 import java.util.Date;
 import java.util.List;
+import src.model.Renda;
+import src.service.RendaService;
 
 public class RendaController {
     private final RendaService rendaService = new RendaService();
@@ -19,10 +18,6 @@ public class RendaController {
 
     public List<Renda> listarFixas() {
         return rendaService.listarRendasFixas();
-    }
-
-    public List<Renda> listarPorPeriodo(Date inicio, Date fim) {
-        return rendaService.listarRendasPorPeriodo(inicio, fim);
     }
 
     public void editar(String id, String nome, double valor) {
@@ -43,5 +38,9 @@ public class RendaController {
 
     public double calcularTotalMensal(int mes, int ano) {
         return rendaService.calcularRendaTotalMensal(mes, ano);
+    }
+
+    public List<Renda> listarPorPeriodo(Date inicio, Date fim) {
+        return rendaService.listarPorPeriodo(inicio, fim);
     }
 }

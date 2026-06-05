@@ -42,11 +42,6 @@ public class RendaService {
         return rendaDAO.listarRendasFixas(Sessao.getIdUsuarioLogado());
     }
 
-      public List<Renda> listarRendasPorPeriodo(Date inicio,Date fim){
-        return rendaDAO.listarRendasPorPeriodo(inicio, fim, Sessao.getIdUsuarioLogado());
-    }
-
-
     public void editarRenda(String id, String nome, double valor) {
         rendaDAO.editarRenda(id, nome, valor);
     }
@@ -65,5 +60,24 @@ public class RendaService {
 
     public double calcularRendaTotalMensal(int mes, int ano) {
         return rendaDAO.calcularRendaTotalMensal(mes, ano, Sessao.getIdUsuarioLogado());
+    }
+
+    public List<Renda> listarPorPeriodo(Date inicio, Date fim) {
+        if (!Sessao.isLogado()) {
+            System.out.println("Erro: nenhum usuário logado.");
+            return List.of();
+        }
+
+        if (inicio == null || fim == null) {
+            System.out.println("Erro: período inválido.");
+            return List.of();
+        }
+
+        if (inicio.after(fim)) {
+            System.out.println("Erro: data inicial não pode ser maior que a final.");
+            return List.of();
+        }
+
+        return rendaDAO.listarRendasPorPeriodo(Sessao.getIdUsuarioLogado(), inicio, fim);
     }
 }
