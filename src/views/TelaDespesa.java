@@ -9,7 +9,6 @@ import src.model.Despesa;
 import util.UtilData;
 
 public class TelaDespesa {
-
     private final Scanner leitor = new Scanner(System.in);
     private final DespesaController controller = new DespesaController();
 

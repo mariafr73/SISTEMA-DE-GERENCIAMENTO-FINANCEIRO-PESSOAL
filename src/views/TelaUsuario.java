@@ -11,12 +11,12 @@ import util.Sessao;
 import util.UtilData;
 
 public class TelaUsuario {
-    private final Scanner scanner;
+    private final Scanner leitor;
     private final UsuarioController controller = new UsuarioController();
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
 
     public TelaUsuario(Scanner scanner) {
-        this.scanner = scanner;
+        this.leitor = scanner;
         this.dateFormat.setLenient(false);
     }
 
@@ -41,7 +41,7 @@ public class TelaUsuario {
             System.out.println("1. Visualizar Meus Dados");
             System.out.println("2. Editar Meus Dados");
             System.out.println("3. Excluir Minha Conta");
-            System.out.println("4. Visualizar Relatório Financeiro");
+            System.out.println("4. Listar Renda e Despesas por Período");
             System.out.println("0. Voltar ao Menu Principal");
             System.out.println("======================");
             System.out.print("Escolha uma opção: ");
@@ -69,7 +69,7 @@ public class TelaUsuario {
         if (usuario != null) {
             controller.visualizarUsuario(usuario);
             System.out.println("Pressione ENTER para continuar.");
-            scanner.nextLine();
+            leitor.nextLine();
         }
     }
 
@@ -84,14 +84,14 @@ public class TelaUsuario {
         System.out.println("(Deixe vazio e aperte Enter para manter o valor atual)");
 
         System.out.print("Novo Nome [" + usuario.getNome() + "]: ");
-        String novoNome = scanner.nextLine();
+        String novoNome = leitor.nextLine();
 
         if (!novoNome.trim().isEmpty()) {
             usuario.setNome(novoNome);
         }
 
         System.out.print("Novo Email [" + usuario.getEmail() + "]: ");
-        String novoEmail = scanner.nextLine();
+        String novoEmail = leitor.nextLine();
 
         if (!novoEmail.trim().isEmpty()) {
             usuario.setEmail(novoEmail);
@@ -100,7 +100,7 @@ public class TelaUsuario {
         String dataAtualStr = usuario.getDataNascimento() != null ? UtilData.formatarData(usuario.getDataNascimento()) : "N/D";
 
         System.out.print("Nova Data (dd/MM/yyyy) [" + dataAtualStr + "]: ");
-        String novaDataStr = scanner.nextLine();
+        String novaDataStr = leitor.nextLine();
 
         if (!novaDataStr.trim().isEmpty()) {
             try {
@@ -124,7 +124,7 @@ public class TelaUsuario {
         System.out.println("Isso apagará TODAS as suas Despesas e Rendas permanentemente.");
         System.out.print("Digite 'SIM' para confirmar a exclusão: ");
 
-        String confirmacao = scanner.nextLine();
+        String confirmacao = leitor.nextLine();
 
         if (confirmacao.equalsIgnoreCase("SIM")) {
             if (controller.excluirContaLogada()) {
@@ -149,13 +149,13 @@ public class TelaUsuario {
         System.out.println("\n--- CADASTRO DE USUÁRIO ---");
 
         System.out.print("Nome: ");
-        String nome = scanner.nextLine();
+        String nome = leitor.nextLine();
 
         System.out.print("Email: ");
-        String email = scanner.nextLine();
+        String email = leitor.nextLine();
 
         System.out.print("Senha: ");
-        String senha = scanner.nextLine();
+        String senha = leitor.nextLine();
 
         Date dataNascimento = lerDataNascimento();
 
@@ -172,10 +172,10 @@ public class TelaUsuario {
         System.out.println("\n--- LOGIN ---");
 
         System.out.print("Email: ");
-        String email = scanner.nextLine();
+        String email = leitor.nextLine();
 
         System.out.print("Senha: ");
-        String senha = scanner.nextLine();
+        String senha = leitor.nextLine();
 
         Usuario usuarioLogado = controller.login(email, senha);
 
@@ -186,19 +186,18 @@ public class TelaUsuario {
         return usuarioLogado;
     }
 
-     private void visualizarRelatorioFinanceiro() {
+    private void visualizarRelatorioFinanceiro() {
         System.out.println("\n--- RELATÓRIO FINANCEIRO ---");
         
         System.out.print("Data inicial (dd/MM/yyyy): ");
-        String inicio = scanner.nextLine();
+        String inicio = leitor.nextLine();
         
         System.out.print("Data final (dd/MM/yyyy): ");
-        String fim = scanner.nextLine();
+        String fim = leitor.nextLine();
         
-        String relatorio = controller.listarRendasDespesasPorPeriodo(inicio, fim);
-        
+        String relatorio = controller.listarRendasDespesasPorPeriodo(inicio, fim);        
         System.out.println(relatorio);
-     }
+    }
 
     private Date lerDataNascimento() {
         Date dataNascimento = null;
@@ -209,13 +208,13 @@ public class TelaUsuario {
                 System.out.println("--- Informe a Data de Nascimento (Limite: " + anoLimite + ") ---");
 
                 System.out.print("Dia: ");
-                int dia = Integer.parseInt(scanner.nextLine());
+                int dia = Integer.parseInt(leitor.nextLine());
 
                 System.out.print("Mês: ");
-                int mes = Integer.parseInt(scanner.nextLine());
+                int mes = Integer.parseInt(leitor.nextLine());
 
                 System.out.print("Ano: ");
-                int ano = Integer.parseInt(scanner.nextLine());
+                int ano = Integer.parseInt(leitor.nextLine());
 
                 if (ano > anoLimite) {
                     System.out.println("Erro: o ano de nascimento não pode ser maior que " + anoLimite + ".");
@@ -244,17 +243,17 @@ public class TelaUsuario {
 
     private int lerInteiro() {
         try {
-            if (scanner.hasNextInt()) {
-                int numero = scanner.nextInt();
-                scanner.nextLine();
+            if (leitor.hasNextInt()) {
+                int numero = leitor.nextInt();
+                leitor.nextLine();
                 return numero;
             }
 
-            scanner.nextLine();
+            leitor.nextLine();
             return -1;
 
         } catch (Exception e) {
-            scanner.nextLine();
+            leitor.nextLine();
             return -1;
         }
     }

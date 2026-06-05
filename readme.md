@@ -91,8 +91,6 @@ Service
 DAO
  ↓
 Model
- ↓
-SQLite
 ```
 
 ### Camadas
@@ -182,9 +180,11 @@ O diagrama de classes representa a estrutura das entidades, seus atributos e rel
 
 | Integrante | Função |
 |------------|---------|
-| Maria Francisca Pessoa de Queiroz | Desenvolvimento |
-| Levi Araujo Maia Neto | Desenvolvimento |
+| Maria Francisca Pessoa de Queiroz | Desenvolvimento e Modelagem |
+| Levi Araujo Maia Neto | Desenvolvimento e Modelagem |
 
-Universidade Federal Rural do Semi-Árido (UFERSA).
+Universidade Federal Rural do Semi-Árido (UFERSA)
 
-Curso: Bacharelado Interdisciplinar em Tecnologia da Informação (BTI).
+Curso: Bacharelado Interdisciplinar em Tecnologia da Informação (BTI)
+
+Disciplina: Programação Orientada a Objetos

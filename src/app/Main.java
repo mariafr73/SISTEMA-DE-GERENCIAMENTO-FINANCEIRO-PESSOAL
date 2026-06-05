@@ -1,12 +1,11 @@
 package src.app;
 
 import java.util.Scanner;
-
 import src.views.TelaCategoria;
+import src.views.TelaDespesa;
 import src.views.TelaRenda;
 import src.views.TelaUsuario;
 import util.Sessao;
-import src.views.TelaDespesa;
 
 public class Main {
     public static void main(String[] args) {
