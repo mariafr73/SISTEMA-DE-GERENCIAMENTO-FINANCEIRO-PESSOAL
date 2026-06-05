@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import src.controller.RendaController;
 import src.model.Renda;
-import src.model.UtilData;
+import util.UtilData;
 
 public class TelaRenda {
     private final Scanner leitor = new Scanner(System.in);

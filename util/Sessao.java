@@ -1,4 +1,4 @@
-package src.model;
+package util;
 
 public class Sessao {
     private static String idUsuarioLogado = null;

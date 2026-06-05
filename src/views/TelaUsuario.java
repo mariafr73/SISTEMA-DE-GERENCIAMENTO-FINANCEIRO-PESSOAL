@@ -6,9 +6,9 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 import src.controller.UsuarioController;
-import src.model.Sessao;
 import src.model.Usuario;
-import src.model.UtilData;
+import util.Sessao;
+import util.UtilData;
 
 public class TelaUsuario {
     private final Scanner scanner;

@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
 import src.model.Usuario;
-import src.model.UtilData;
+import util.UtilData;
 
 public class UsuarioDAO {
     private static final String SQL_INSERT

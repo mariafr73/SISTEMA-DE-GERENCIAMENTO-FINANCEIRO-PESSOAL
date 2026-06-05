@@ -1,4 +1,4 @@
-package src.model;
+package util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,6 +7,7 @@ import java.util.Date;
 public class UtilData {
     private static final SimpleDateFormat FORMAT_USER = new SimpleDateFormat("dd/MM/yyyy");
     private static final SimpleDateFormat FORMAT_DB = new SimpleDateFormat("yyyy-MM-dd");
+    private UtilData() {}
 
     static {
         FORMAT_USER.setLenient(false);

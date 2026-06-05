@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 import src.dao.RendaDAO;
 import src.model.Renda;
-import src.model.Sessao;
+import util.Sessao;
 
 public class RendaService {
     private final RendaDAO rendaDAO = new RendaDAO();

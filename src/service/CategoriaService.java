@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import src.dao.CategoriaDAO;
 import src.model.Categoria;
-import src.model.Sessao;
+import util.Sessao;
 
 public class CategoriaService {
     private CategoriaDAO dao = new CategoriaDAO();

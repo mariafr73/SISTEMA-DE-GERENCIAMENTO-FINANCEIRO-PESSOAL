@@ -6,7 +6,7 @@ import java.util.UUID;
 import src.dao.DespesaDAO;
 import src.model.Categoria;
 import src.model.Despesa;
-import src.model.Sessao;
+import util.Sessao;
 
 public class DespesaService {
     private final DespesaDAO dao = new DespesaDAO();

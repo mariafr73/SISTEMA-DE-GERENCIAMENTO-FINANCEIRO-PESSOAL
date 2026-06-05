@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.Date;
 import src.model.Renda;
-import src.model.UtilData;
+import util.UtilData;
 
 public class RendaDAO {
     public Renda cadastrarRenda(Renda renda) {
