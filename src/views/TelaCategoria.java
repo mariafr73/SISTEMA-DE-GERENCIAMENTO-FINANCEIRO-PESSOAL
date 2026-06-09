@@ -145,7 +145,6 @@ public class TelaCategoria {
     }
 
     private void desativar() {
-
         System.out.print("Digite o nome da categoria que deseja desativar: ");
 
         String nome = leitor.nextLine().trim();
